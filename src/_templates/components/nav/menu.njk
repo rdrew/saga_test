@@ -1,0 +1,10 @@
+{% for item in collections.nav %}
+
+ {% for item in item.data.menu %}
+
+    {% if item.menu.url in page.url -%} ! {% endif %}
+    <a href="{{ item.menu.url }}" title="{{ item.menu.text}}">{{ item.menu.title  }}</a>
+
+ {% endfor %}
+
+{% endfor %}

@@ -1,0 +1,48 @@
+---
+layout: layout/default.njk
+---
+
+
+
+<h2>Pages</h2>
+
+{% for item in collections.allPages | sortByOrder%}
+    - <a href="{{ item.url }}">{{item.data.title}} ({{ item.url }})</a>
+    <br>
+{% endfor %}
+
+<section class="py-8">
+tags
+{# tags #}
+{% for tag in collections.tagList %}
+  {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+  <a href="{{ tagUrl | url }}">{{ tag }}</a>,
+{% endfor %}
+</section>
+
+{{ content | safe}}
+
+
+
+<div class="text-2xl">all post</div>
+<div class="bg-blue-100">
+{% for item in collections.allPosts %}
+ - <a href="{{ item.url }}" title="{{item.data.title}}">{{item.data.title}}</a> <br>
+{% endfor %}
+</div>
+
+
+
+{% include "components/nav/menu.njk" %}
+
+<div class="text-2xl">Recent</div>
+<div class="bg-blue-100">
+{% for item in collections.recentPosts %}
+ <h3 class="font-bold">
+ <a href="{{ item.url }}" title="{{item.data.title}}">{{item.data.title}}</a>
+ </h3>
+ {# {{item.templateContent | safe}} #}
+
+{% endfor %}
+</div>
+

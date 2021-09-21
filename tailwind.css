@@ -1,0 +1,29 @@
+@tailwind base;
+
+/* apply base settings */
+@layer base {
+  /* alphine helper */
+  [x-cloak] {
+    display: none !important;
+  }
+  .pagewidth {
+    @apply md:max-w-7xl	mx-auto;
+  }
+  /* defailt markup */
+  h1 {
+    @apply font-bold text-4xl
+  }
+  h2 {
+    @apply font-bold text-3xl
+  }
+  h3 {
+    @apply font-bold text-2xl
+  }
+  main a {
+    @apply underline text-red-700
+  }
+}
+
+/* custom */
+@tailwind components;
+@tailwind utilities;
